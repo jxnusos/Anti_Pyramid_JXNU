@@ -1,0 +1,46 @@
+{
+  "usingComponents": {
+    "van-nav-bar": "static/vant/lib/nav-bar/index",
+    "van-loading": "static/vant/lib/loading/index",
+    "van-action-sheet": "static/vant/lib/action-sheet/index"
+  },
+  "pages": [
+    "pages/index/main",
+    "pages/comments/main",
+    "pages/user/main",
+    "pages/comments_detail/main",
+    "pages/add_comment/main"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#facfb7",
+    "navigationBarTitleText": "高校反传小助手",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "color": "#999",
+    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+
+    "list": [{
+      "text": "首页",
+      "pagePath": "pages/index/main",
+      "iconPath": "static/tabs/home.png",
+      "selectedIconPath": "static/tabs/home-active.png"
+    }, {
+      "text": "评论",
+      "pagePath": "pages/comments/main",
+      "iconPath": "static/tabs/orders.png",
+      "selectedIconPath": "static/tabs/orders-active.png"
+    },
+      {
+        "text": "我",
+        "pagePath": "pages/user/main",
+        "iconPath": "static/tabs/user.png",
+        "selectedIconPath": "static/tabs/user-active.png"
+      }],
+    "position": "bottom"
+  },
+  "cloud": true
+}
