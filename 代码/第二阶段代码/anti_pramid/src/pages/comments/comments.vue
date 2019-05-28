@@ -92,8 +92,10 @@
         let openid=''
        await   this.$createUtils.getOpenid().then(res=>{
           openid=res
-        })
-        const  db = wx.cloud.database()
+        }).catch(res=>{
+          console.log(res)
+       })
+        const  db = wx.cloud.database({env:that.$MyConfig.test_env})
         db.collection('child_comments').add({
           data:{
             userName:user.nickName,
@@ -103,10 +105,12 @@
             due:new Date()
           }
         }).then(res=>{
-          console.log("添加结束了")
+          console.log("添加结束了"+res)
 
           that.addchildcomment(that.myindex)
           that.pullDownRefesh()
+        }).catch(res=>{
+          console.log(res)
         })
       },
       linkToDetail:function(value,index){
@@ -139,7 +143,7 @@
            success(res){
              console.log(res.confirm)
             if(res.confirm==true){
-              const db=wx.cloud.database()
+              const db=wx.cloud.database({env:that.$MyConfig.test_env})
               db.collection('comments').doc(id).remove().then(res=>{
                 if(res.stats.removed==1){
                  console.log("删除成功")
@@ -215,6 +219,7 @@
     background-color: #facfb7;
     opacity: 0.5;
   }*/
+
   .fly img{
     width: 60px;
     height: 60px;

@@ -55,7 +55,7 @@ console.log('commentdetail onshow')
       ...mapMutations('comments', { addchildcomment:'addchildcomment',addlikers: 'addlikers', reducelikers: 'reducelikers' }),
       ...mapMutations('childcomment', { updatechildcomment: 'updatechildcomment' }),
       showinput:function(index,id){
-        console.log("展示输入款")
+        console.log("展示输入框")
         this.myindex=index
         this.myid=id
         this.inputshow=true
@@ -85,7 +85,6 @@ console.log('commentdetail onshow')
             imageSrc:user.avatarUrl,
             parent_id:that.myid,
             content:content,
-
             due:new Date()
           }
         }).then(res=>{
@@ -93,7 +92,11 @@ console.log('commentdetail onshow')
           const id= that.comment._id
           that.addchildcomment(that.myindex)
           that.updatechildcomment(id)
+        }).catch(res=>{
+          console.log(res)
         })
+
+
       },
     }
     };

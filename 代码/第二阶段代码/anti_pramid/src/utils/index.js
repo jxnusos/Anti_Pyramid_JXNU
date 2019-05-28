@@ -1,3 +1,5 @@
+const  test_env='zen-1b701c'
+
 function formatNumber(n){
   const str = n.toString()
   return str[1] ? str : `0${str}`
@@ -70,6 +72,7 @@ function login(){
   return new Promise((resolve, reject) => {
     wx.cloud.callFunction({
       name: 'getopenid',
+      config:{env:test_env},
       success(res) {
         console.log("openid是"+res.result.openId)
         resolve(res.result.openId)
