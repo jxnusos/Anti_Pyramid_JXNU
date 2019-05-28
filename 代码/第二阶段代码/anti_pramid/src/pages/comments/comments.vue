@@ -207,14 +207,14 @@
   height: 30px;
 
   }
-  .fix{
+  /*.fix{
     width: 100%;
     position: fixed;
     top: 0px;
     right: 0px;
     background-color: #facfb7;
     opacity: 0.5;
-  }
+  }*/
   .fly img{
     width: 60px;
     height: 60px;
