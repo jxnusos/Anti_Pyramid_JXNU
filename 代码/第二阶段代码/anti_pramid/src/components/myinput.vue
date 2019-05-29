@@ -2,7 +2,7 @@
   <div class="formdiv"  z-index=100>
     <form class="myform" @submit="mysubmit" v-if="focus">
       <input type="text" value="" :adjust-position="adjustPosition" adjust-position="true" @blur.prevent="inputblur"  name="content" v-model="childcomment" :focus="focus"  class="myinput" placeholder-style="color:#EEE" placeholder="说点什么吧...">
-      <button form-type="submit"  class="mysubmit">完成</button>
+      <button form-type="submit"  class="mysubmit">发 送</button>
     </form>
   </div>
 </template>
@@ -46,24 +46,23 @@
   }
   .myinput{
     width: 80%;
-    height: 30px;
+    height: 40px;
     font-size: 16px;
     background-color: #FFF;
     border: 1px solid #EEE;
-    font-size: 14px;
-
   }
   .mysubmit{
     width: 18%;
-    height: 30px;
-    background-color: #EEE;
+    height: 40px;
+    background-color: red;
     color: #FFF;
     position: absolute;
     right: 1%;
     top:0px;
     text-align: center;
-    line-height: 30px;
+    line-height: 40px;
     font-size: 14px;
+    font-weight: bold;
 
   }
 </style>

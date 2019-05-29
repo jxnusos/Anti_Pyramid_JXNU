@@ -18,11 +18,17 @@
         <text class="content_">{{comments.content}}</text>
       </div>
       <div class="operation">
-        <img  :src="Ilike==true?like_choose:like"  class="operation_img" :class="{'puffOut':comments.likers>0}" @click.stop="clickLike" />
-        <text >{{comments.likers}}</text>
-        <img src="/static/tabs/message.png" class="operation_img"  @click.stop="mycomment"/>
 
+        <div class="like_it" :class="{'puffOut':comments.likers>0}" @click.stop="clickLike" >
+        <img  :src="Ilike==true?like_choose:like"  class="operation_img"  />
+        <text >{{comments.likers}}</text>
+        </div>
+
+        <div class="comment_it"  @click.stop="mycomment">
+        <img src="/static/tabs/message1.png" class="operation_img" />
         <text>{{comments.childcomment}}</text>
+        </div>
+
       </div>
 
     </div>
@@ -118,11 +124,9 @@
     display: flex;
     justify-items: center;
     justify-content: space-between;
-
-
   }
   .head_left{
-     height: 50px;
+    height: 50px;
     width:auto;
 
   }
@@ -153,25 +157,30 @@
   }
   .content{
     width: 100%;
+    line-height: 22px;
     font-size: 12px;
     margin: 8px 0 8px 0px ;
   }
   .operation{
     font-size: 10px;
     width: 100%;
-    height: 20px;
+    height: 25px;
     display: flex;
     justify-content: flex-end;
     justify-items: center;
-
+    margin-top: 10px;
   }
   .operation text{
-    margin-right: 5px;
+    margin-right: 25px;
   }
 .operation_img{
-    width: 18px;
-    height:16px;
-    margin-right: 10px;
+    width: 20px;
+    height:18px;
+    margin-right: 6px;
+  }
+  .comment_it img{
+    width: 20px;
+    height: 20px;
   }
 
 </style>

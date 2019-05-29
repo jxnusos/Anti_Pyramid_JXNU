@@ -7,6 +7,7 @@
 <div  v-for="(value ,index) in comments"  :key="value._id" @click.stop="linkToDetail(value,index)" @longpress.stop="long(value._id,value._openid)">
       <comment :comments="value" :index="index" @addlikers="addlikers" @reducelikers="reducelikers" @showinput="showinput"></comment>
 </div>
+
   <div v-if="loadingshow">
   <myloading ></myloading>
   </div>
@@ -205,7 +206,7 @@
 </script>
 
 <style scoped>
-.head{
+.head {
   width: 100%;
   height: 30px;
   text-align: right;

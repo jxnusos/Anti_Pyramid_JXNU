@@ -6,8 +6,10 @@
         </div>
         <div class="head_right">
           <text  class="userName">{{childcomment.userName}}</text>
-            <text class="content_">{{childcomment.content}}</text>
         </div>
+    </div>
+    <div class = "middle_content">
+      <text class="content_">{{childcomment.content}}</text>
     </div>
     <div  class="nowtime">
       <text class="publicDate">{{nowdata}}</text>
@@ -49,12 +51,15 @@
 
 <style scoped>
   .wrap{
-    width: 92%;
+    width: 85%;
     height: auto;
     border-bottom: 8px solid #EEE;
     border-radius: 2%;
     box-shadow: 5px 5px 5px #eee;
-    margin-left: 4%;
+    margin-left: 10%;
+    border-color: #66CCFF;
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
   .head{
     width: 100%;
@@ -87,6 +92,8 @@
   }
   .userName{
     font-size: 10px;
+    color:dodgerblue;
+    font-weight: bold;
   }
   .content_{
     font-size: 12px;
@@ -95,6 +102,11 @@
     width: 100%;
     font-size: 12px;
     margin: 8px 0 8px 0px ;
+  }
+  . middle_content{
+    width: 100%;
+    font-size: 12px;
+    margin: 8px 0 8px 0px;
   }
 
 </style>
