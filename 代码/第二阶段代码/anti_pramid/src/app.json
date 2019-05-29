@@ -4,7 +4,8 @@
     "pages/comments/main",
     "pages/user/main",
     "pages/comments_detail/main",
-    "pages/add_comment/main"
+    "pages/add_comment/main",
+    "pages/news/main"
   ],
 
   "window": {

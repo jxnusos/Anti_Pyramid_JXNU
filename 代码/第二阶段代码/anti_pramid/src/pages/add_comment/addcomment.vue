@@ -11,26 +11,29 @@
     methods:{
       confirm:function(e) {
         console.log(e.content)
-          const that = this
-          console.log(e)
-          console.log("进来了")
+        const that = this
+        console.log(e)
+        console.log("进来了")
         console.log(that.$MyConfig.test_env)
-          const db = wx.cloud.database({env:that.$MyConfig.test_env})
-          const user = wx.getStorageSync('anti_userInfo')
+        const db = wx.cloud.database({ env: that.$MyConfig.test_env })
+        const user = wx.getStorageSync('anti_userInfo')
+        if (user == null) {
+          that.$createUtils.switchToLogin()
+        } else {
           db.collection('comments').add({
             data: {
               due: new Date(),
               content: e.content,
               userName: user.nickName,
               imageSrc: user.avatarUrl,
-              likers:0,
-              childcomment:0
+              likers: 0,
+              childcomment: 0
             }
           }).then(res => {
-            const likers= 'likers'+res._id
-            const childcomment='childcomment'+res._id
-           wx.setStorageSync(likers,0)
-            wx.setStorageSync(childcomment,0)
+            const likers = 'likers' + res._id
+            const childcomment = 'childcomment' + res._id
+            wx.setStorageSync(likers, 0)
+            wx.setStorageSync(childcomment, 0)
             wx.showToast({
               title: '发布成功！',
               icon: 'success',
@@ -46,6 +49,7 @@
 
           })
         }
+      }
       }
 
   };

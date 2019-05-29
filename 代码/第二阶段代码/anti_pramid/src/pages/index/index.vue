@@ -27,8 +27,8 @@
 
    <!--内容列表-->
    <div class="contents">
-    <div content-item v-for="(item ,index) in nowContents"  :key="index">
-     <contents_item :content="item"></contents_item>
+    <div content-item v-for="(item ,index) in nowContents"  :key="index" @click.stop="linktonews">
+     <contents_item :content="item" ></contents_item>
     </div>
    </div>
  </div>
@@ -121,6 +121,11 @@ export default {
     contents_item
   },
   methods:{
+    linktonews:function(){
+      console.log("进来了")
+      const url ='../news/main'
+      wx.navigateTo({url})
+    },
     changeindex:function(index){
       this.nowindex=index
     },

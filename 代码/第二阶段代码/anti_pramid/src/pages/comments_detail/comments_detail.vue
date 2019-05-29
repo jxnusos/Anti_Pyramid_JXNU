@@ -73,29 +73,32 @@ console.log('commentdetail onshow')
         console.log("信息是"+content+"index是"+that.myindex)
         const id= that.comments[that.myindex]._id
         const  user= wx.getStorageSync('anti_userInfo')
-        console.log("添加的id是"+id)
-        let openid=''
-        await   this.$createUtils.getOpenid().then(res=>{
-          openid=res
-        })
-        const  db = wx.cloud.database({env:that.$MyConfig.test_env})
-        db.collection('child_comments').add({
-          data:{
-            userName:user.nickName,
-            imageSrc:user.avatarUrl,
-            parent_id:that.myid,
-            content:content,
-            due:new Date()
-          }
-        }).then(res=>{
-          console.log("添加结束了")
-          const id= that.comment._id
-          that.addchildcomment(that.myindex)
-          that.updatechildcomment(id)
-        }).catch(res=>{
-          console.log(res)
-        })
-
+        if (user == null) {
+          that.$createUtils.switchToLogin()
+        }else {
+          console.log("添加的id是" + id)
+          let openid = ''
+          await this.$createUtils.getOpenid().then(res => {
+            openid = res
+          })
+          const db = wx.cloud.database({ env: that.$MyConfig.test_env })
+          db.collection('child_comments').add({
+            data: {
+              userName: user.nickName,
+              imageSrc: user.avatarUrl,
+              parent_id: that.myid,
+              content: content,
+              due: new Date()
+            }
+          }).then(res => {
+            console.log("添加结束了")
+            const id = that.comment._id
+            that.addchildcomment(that.myindex)
+            that.updatechildcomment(id)
+          }).catch(res => {
+            console.log(res)
+          })
+        }
 
       },
     }

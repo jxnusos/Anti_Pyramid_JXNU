@@ -83,6 +83,24 @@ function login(){
     })
   })
 }
+function switchToLogin() {
+
+    wx.showModal({
+      title: '提示',
+      content: '请先登录哦！',
+      success(res) {
+        if (res.confirm) {
+          wx.switchTab({
+            url: '../../pages/user/main'
+          })
+        } else if (res.cancel) {
+          wx.navigateBack({
+            delta: 1
+          })
+        }
+      }
+    })
+}
 
 const createUtils={
   formatNumber,
@@ -90,6 +108,7 @@ const createUtils={
   request,
   login,
   getOpenid,
+  switchToLogin
 
 }
 export  default createUtils

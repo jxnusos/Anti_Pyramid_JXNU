@@ -81,37 +81,41 @@
           that.inputshow=false
         },500)
       },
-      mysubmit:async function(content){
+      mysubmit:async function(content) {
         console.log("进来了")
-        const that= this
-        that.inputshow=false
-        console.log("信息是"+content+"index是"+that.myindex)
-        const id= that.comments[that.myindex]._id
-        const  user= wx.getStorageSync('anti_userInfo')
-        console.log("添加的id是"+id)
-        let openid=''
-       await   this.$createUtils.getOpenid().then(res=>{
-          openid=res
-        }).catch(res=>{
-          console.log(res)
-       })
-        const  db = wx.cloud.database({env:that.$MyConfig.test_env})
-        db.collection('child_comments').add({
-          data:{
-            userName:user.nickName,
-            imageSrc:user.avatarUrl,
-            parent_id:that.myid,
-            content:content,
-            due:new Date()
-          }
-        }).then(res=>{
-          console.log("添加结束了"+res)
+        const that = this
+        that.inputshow = false
+        console.log("信息是" + content + "index是" + that.myindex)
+        const id = that.comments[that.myindex]._id
+        const user = wx.getStorageSync('anti_userInfo')
+        if(user==null){
+        that.$createUtils.switchToLogin()
+        } else {
+          console.log("添加的id是" + id)
+          let openid = ''
+          await this.$createUtils.getOpenid().then(res => {
+            openid = res
+          }).catch(res => {
+            console.log(res)
+          })
+          const db = wx.cloud.database({ env: that.$MyConfig.test_env })
+          db.collection('child_comments').add({
+            data: {
+              userName: user.nickName,
+              imageSrc: user.avatarUrl,
+              parent_id: that.myid,
+              content: content,
+              due: new Date()
+            }
+          }).then(res => {
+            console.log("添加结束了" + res)
 
-          that.addchildcomment(that.myindex)
-          that.pullDownRefesh()
-        }).catch(res=>{
-          console.log(res)
-        })
+            that.addchildcomment(that.myindex)
+            that.pullDownRefesh()
+          }).catch(res => {
+            console.log(res)
+          })
+        }
       },
       linkToDetail:function(value,index){
         const that = this
