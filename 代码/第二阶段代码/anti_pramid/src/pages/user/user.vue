@@ -9,7 +9,7 @@
     </div>
     <div class="content">
         <div class="content-item">
-          <a href = "../../pages/add_comment/main" > <img src="https://images.heyzen.club/heihei.png">我 的 问 答</a>
+          <a href = "#" > <img src="https://images.heyzen.club/heihei.png">我 的 问 答</a>
         </div>
       <div class="content-item">
         <a href = "#"><img src="https://images.heyzen.club/aboutme.png">关 于 我 们</a>

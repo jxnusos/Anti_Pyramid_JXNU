@@ -68,7 +68,6 @@
     display: flex;
     justify-items: center;
     justify-content: flex-start;
-
   }
   .head_left{
     height: 50px;

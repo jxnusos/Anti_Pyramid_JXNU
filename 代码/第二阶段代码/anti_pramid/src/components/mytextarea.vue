@@ -1,9 +1,9 @@
 <template>
   <div  class="wrap">
     <form @submit="confirm">
-    <textarea  showConfirmBar="false" cursor-spacing=0 name="content"  autofocus="true" placeholder="分享我的信息..." placeholder-style="font-size:14px;font-weight:100;color:#000">
+    <textarea  showConfirmBar="false" cursor-spacing=0 name="content"  autofocus="true" placeholder="分享我的信息..." placeholder-style="font-size:14px;font-weight:100;color:#aaa">
     </textarea>
-      <button form-type="submit" :disabled="isdisabled">发表</button>
+      <button form-type="submit" :disabled="isdisabled">发    表</button>
     </form>
   </div>
 </template>
@@ -41,4 +41,9 @@
   margin-left: 3%;
   background-color: #EEE;
 }
+  .wrap button{
+    margin-top: 10px;
+    background-color: #c62f2f;
+    color: white;
+  }
 </style>
