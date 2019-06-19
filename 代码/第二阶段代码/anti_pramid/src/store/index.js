@@ -4,6 +4,7 @@ import Vue from 'vue'
 import user from './modules/user'
 import  comments from './modules/comments'
 import  childcomment from './modules/childcomment'
+import  news from './modules/news'
 
 Vue.use(Vuex)
 
@@ -20,6 +21,10 @@ const store = new Vuex.Store({
       childcomment:{
         namespaced:true,
         ...childcomment
+      },
+      news:{
+        namespaced:true,
+        ...news
       }
     }
   }

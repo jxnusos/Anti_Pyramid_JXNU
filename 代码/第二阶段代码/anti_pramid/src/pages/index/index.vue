@@ -150,7 +150,8 @@ export default {
   methods:{
     linktonews:function(){
       console.log("进来了")
-      const url ='../news/main'
+      const  index = 0
+      const url ='../news/main?index='+index
       wx.navigateTo({url})
     },
     changeindex:function(index){
